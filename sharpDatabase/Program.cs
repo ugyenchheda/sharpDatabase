@@ -13,72 +13,130 @@ namespace OOPTask13
                 try
               {
                     sqlConnection.Open();
-            //        string insertNew = "INSERT INTO Dentist (Name, TelNum) VALUES (@newName, @newTelNum)";
-            //        SqlCommand command = new SqlCommand(insertNew, sqlConnection);
-            //        SqlParameter sqlParameter = new SqlParameter
-            //        {
-            //            ParameterName = "@newName",
-            //            Value = "Reijo Vuohelainen",
-            //            SqlDbType = System.Data.SqlDbType.NVarChar
-            //        };
-            //        command.Parameters.Add(sqlParameter);
 
-            //        sqlParameter = new SqlParameter
-            //        {
-            //            ParameterName = "@newTelNum",
-            //            Value = "040 1119991",
-            //            SqlDbType = System.Data.SqlDbType.NVarChar
-            //        };
-            //        command.Parameters.Add(sqlParameter);
-            //        int numberOfRows = command.ExecuteNonQuery();
-            //        if (numberOfRows > 0)
-            //            Console.WriteLine("Successfully inserted information.");
-            //        else if (numberOfRows == 0)
-            //            Console.WriteLine("No such employee in the company.");
+                    //Insert Into Database
 
-            //        //Did anything go to the database table?
+                    //        string insertNew = "INSERT INTO Dentist (Name, TelNum) VALUES (@newName, @newTelNum)";
+                    //        SqlCommand command = new SqlCommand(insertNew, sqlConnection);
+                    //        SqlParameter sqlParameter = new SqlParameter
+                    //        {
+                    //            ParameterName = "@newName",
+                    //            Value = "Reijo Vuohelainen",
+                    //            SqlDbType = System.Data.SqlDbType.NVarChar
+                    //        };
+                    //        command.Parameters.Add(sqlParameter);
 
-            //        Console.WriteLine("After possibly inserting a row:");
-            //        string queryString = "SELECT * FROM Dentist";
-            //        command = new SqlCommand(queryString, sqlConnection);
-            //        using (SqlDataReader reader = command.ExecuteReader())
-            //        {
-            //            while (reader.Read())
-            //            {
-            //                Console.WriteLine(String.Format("{0}, {1}, {2}",
-            //                    reader[0], reader[1], reader[2]));
-            //            }
-            //        }
-            //    }
-                    string findOne = "SELECT * FROM Dentist WHERE Name=@personInInterest";
-                    SqlCommand command = new SqlCommand(findOne, sqlConnection);
+                    //        sqlParameter = new SqlParameter
+                    //        {
+                    //            ParameterName = "@newTelNum",
+                    //            Value = "040 1119991",
+                    //            SqlDbType = System.Data.SqlDbType.NVarChar
+                    //        };
+                    //        command.Parameters.Add(sqlParameter);
+                    //        int numberOfRows = command.ExecuteNonQuery();
+                    //        if (numberOfRows > 0)
+                    //            Console.WriteLine("Successfully inserted information.");
+                    //        else if (numberOfRows == 0)
+                    //            Console.WriteLine("No such employee in the company.");
+
+                    //        //Did anything go to the database table?
+
+                    //        Console.WriteLine("After possibly inserting a row:");
+                    //        string queryString = "SELECT * FROM Dentist";
+                    //        command = new SqlCommand(queryString, sqlConnection);
+                    //        using (SqlDataReader reader = command.ExecuteReader())
+                    //        {
+                    //            while (reader.Read())
+                    //            {
+                    //                Console.WriteLine(String.Format("{0}, {1}, {2}",
+                    //                    reader[0], reader[1], reader[2]));
+                    //            }
+                    //        }
+                    //    }
+
+
+                    // This will look for a person in database
+
+
+                    //    string findOne = "SELECT * FROM Dentist WHERE Name=@personInInterest";
+                    //    SqlCommand command = new SqlCommand(findOne, sqlConnection);
+
+                    //    SqlParameter sqlParameter = new SqlParameter
+                    //    {
+                    //        ParameterName = "@personInInterest",
+                    //        Value = "Reijo Vuohelainen",
+                    //        SqlDbType = System.Data.SqlDbType.NVarChar
+                    //    };
+                    //    command.Parameters.Add(sqlParameter);
+
+
+
+
+
+                    //    //Do we have the person????                 
+
+                    //    using (SqlDataReader reader = command.ExecuteReader())
+                    //    {
+                    //        if (reader.HasRows)
+                    //        {
+                    //            while (reader.Read())
+                    //            {
+                    //                Console.WriteLine(String.Format("{0}, {1}, {2}",
+                    //                    reader[0], reader[1], reader[2]));
+                    //            }
+                    //        }
+                    //        else
+                    //            Console.WriteLine("No such employee here.");
+                    //    }
+                    //}
+
+
+
+                    //Modify information
+
+                    string modify = "UPDATE Dentist SET TelNum=@newTelNum WHERE Name=@dName";
+
+                    SqlCommand command = new SqlCommand(modify, sqlConnection);
 
                     SqlParameter sqlParameter = new SqlParameter
                     {
-                        ParameterName = "@personInInterest",
-                        Value = "Reijo Vuohelainen",
+                        ParameterName = "@dName",
+                        Value = "Jukka Ikonen",
+                        SqlDbType = System.Data.SqlDbType.NVarChar
+                    };
+
+
+
+
+
+                    command.Parameters.Add(sqlParameter);
+
+                    sqlParameter = new SqlParameter
+                    {
+                        ParameterName = "@newTelNum",
+                        Value = "050 12344444",
                         SqlDbType = System.Data.SqlDbType.NVarChar
                     };
                     command.Parameters.Add(sqlParameter);
 
+                    int numberOfRows = command.ExecuteNonQuery();
+                    if (numberOfRows > 0)
+                        Console.WriteLine("Successfully updated information.");
+                    else if (numberOfRows == 0)
+                        Console.WriteLine("No such employee in the company.");
 
+                    //Did anything go to the database table?
 
-
-
-                    //Do we have the person????                 
-
+                    Console.WriteLine("After possibly updating information:");
+                    string queryString = "SELECT * FROM Dentist";
+                    command = new SqlCommand(queryString, sqlConnection);
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        if (reader.HasRows)
+                        while (reader.Read())
                         {
-                            while (reader.Read())
-                            {
-                                Console.WriteLine(String.Format("{0}, {1}, {2}",
-                                    reader[0], reader[1], reader[2]));
-                            }
+                            Console.WriteLine(String.Format("{0}, {1}, {2}",
+                                reader[0], reader[1], reader[2]));
                         }
-                        else
-                            Console.WriteLine("No such employee here.");
                     }
                 }
 
