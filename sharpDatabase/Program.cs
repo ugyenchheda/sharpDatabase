@@ -27,28 +27,28 @@ namespace OOPTask13
 
                 //Insert Into Database
 
-                //        string insertNew = "INSERT INTO Dentist (Name, TelNum) VALUES (@newName, @newTelNum)";
-                //        SqlCommand command = new SqlCommand(insertNew, sqlConnection);
-                //        SqlParameter sqlParameter = new SqlParameter
-                //        {
-                //            ParameterName = "@newName",
-                //            Value = "Reijo Vuohelainen",
-                //            SqlDbType = System.Data.SqlDbType.NVarChar
-                //        };
-                //        command.Parameters.Add(sqlParameter);
+                      string insertNew = "INSERT INTO Dentist (Name, TelNum) VALUES (@newName, @newTelNum)";
+                      SqlCommand command = new SqlCommand(insertNew, sqlConnection);
+                     SqlParameter sqlParameter = new SqlParameter
+                      {
+                         ParameterName = "@newName",
+                         Value = "Reijo Vuohelainen",
+                          SqlDbType = System.Data.SqlDbType.NVarChar
+                      };
+                      command.Parameters.Add(sqlParameter);
 
-                //        sqlParameter = new SqlParameter
-                //        {
-                //            ParameterName = "@newTelNum",
-                //            Value = "040 1119991",
-                //            SqlDbType = System.Data.SqlDbType.NVarChar
-                //        };
-                //        command.Parameters.Add(sqlParameter);
-                //        int numberOfRows = command.ExecuteNonQuery();
-                //        if (numberOfRows > 0)
-                //            Console.WriteLine("Successfully inserted information.");
-                //        else if (numberOfRows == 0)
-                //            Console.WriteLine("No such employee in the company.");
+                      sqlParameter = new SqlParameter
+                       {
+                           ParameterName = "@newTelNum",
+                         Value = "040 1119991",
+                          SqlDbType = System.Data.SqlDbType.NVarChar
+                       };
+                       command.Parameters.Add(sqlParameter);
+                       int numberOfRows = command.ExecuteNonQuery();
+                       if (numberOfRows > 0)
+                           Console.WriteLine("Successfully inserted information.");
+                      else if (numberOfRows == 0)
+                          Console.WriteLine("No such employee in the company.");
 
                        //Did anything go to the database table?
 
