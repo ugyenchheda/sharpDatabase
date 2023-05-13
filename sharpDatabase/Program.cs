@@ -50,20 +50,20 @@ namespace OOPTask13
                 //        else if (numberOfRows == 0)
                 //            Console.WriteLine("No such employee in the company.");
 
-                //        //Did anything go to the database table?
+                       //Did anything go to the database table?
 
-                //        Console.WriteLine("After possibly inserting a row:");
-                //        string queryString = "SELECT * FROM Dentist";
-                //        command = new SqlCommand(queryString, sqlConnection);
-                //        using (SqlDataReader reader = command.ExecuteReader())
-                //        {
-                //            while (reader.Read())
-                //            {
-                //                Console.WriteLine(String.Format("{0}, {1}, {2}",
-                //                    reader[0], reader[1], reader[2]));
-                //            }
-                //        }
-                //    }
+                       Console.WriteLine("After possibly inserting a row:");
+                       string queryString = "SELECT * FROM Dentist";
+                       command = new SqlCommand(queryString, sqlConnection);
+                       using (SqlDataReader reader = command.ExecuteReader())
+                       {
+                           while (reader.Read())
+                           {
+                              Console.WriteLine(String.Format("{0}, {1}, {2}",
+                                  reader[0], reader[1], reader[2]));
+                           }
+                       }
+                   }
 
 
                 // This will look for a person in database
