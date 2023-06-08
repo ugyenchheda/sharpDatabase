@@ -112,7 +112,7 @@ namespace OOPTask13
                 //    SqlParameter sqlParameter = new SqlParameter
                 //    {
                 //        ParameterName = "@dName",
-                //        Value = "Jukka Ikonen",
+                //        Value = "Chasumma Rai",
                 //        SqlDbType = System.Data.SqlDbType.NVarChar
                 //    };
 
