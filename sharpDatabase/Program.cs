@@ -32,7 +32,7 @@ namespace OOPTask13
                      SqlParameter sqlParameter = new SqlParameter
                       {
                          ParameterName = "@newName",
-                         Value = "Reijo Vuohelainen",
+                         Value = "Ugyen Chheda Lama",
                           SqlDbType = System.Data.SqlDbType.NVarChar
                       };
                       command.Parameters.Add(sqlParameter);
